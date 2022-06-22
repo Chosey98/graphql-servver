@@ -33,12 +33,11 @@ const resolvers = {
 		const user = await users.find((event) => event.id === id);
 		return user;
 	},
-	editEvent: async ({ id, title, description }, context) => {
+	editEvent: async ({ id, title }, context) => {
 		const { db } = await context();
 		const events = db.getData('/events');
 		const event = await events.find((event) => event.id === id);
 		event.title = title;
-		event.description = description;
 		db.push('/events', events);
 		return event;
 	},

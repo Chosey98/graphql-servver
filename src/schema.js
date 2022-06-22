@@ -1,25 +1,26 @@
-const { buildSchema } = require('graphql');
+import { buildSchema } from 'graphql';
 
 // Construct a schema, using GraphQL schema language
 const schema = buildSchema(`
     type Event {
         id: ID!
         title: String!
-        description: String
-        date: String
-        attendants: [Person!]
-        canEdit: Boolean
+        description: String!
+        date: String!
+        attendants: [User!]
     }
 
-    type Person {
+    type User {
         id: ID!
         name: String!
-        age: Int
+        age: Int!
     }
 
     type Query {
         events: [Event!]!
         event(id: Int!): Event!
+		users: [User!]
+		user(id: Int!): User!
     }
 
     type Mutation {
@@ -27,4 +28,4 @@ const schema = buildSchema(`
     }
 `);
 
-module.exports = schema;
+export default schema;

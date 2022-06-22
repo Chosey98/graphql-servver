@@ -24,7 +24,7 @@ const schema = buildSchema(`
     }
 
     type Mutation {
-        editEvent(id: Int!, title: String!, description: String!): Event!
+        editEvent(id: Int!, title: String!): Event!
     }
 `);
 
